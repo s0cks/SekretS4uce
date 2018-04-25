@@ -2,7 +2,11 @@ package exoskeleton.common.core;
 
 import exoskeleton.api.core.ICoreHandler;
 import exoskeleton.api.skill.SkillTree;
+import exoskeleton.common.Exoskeleton;
+import exoskeleton.common.core.handlers.CoreHandlerRecon;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
@@ -12,7 +16,22 @@ public final class CoreRegistry{
 
     private static final Map<String, CoreRegistration> coreMap = new HashMap<>();
     static{
+        try{
+            register("recon", new CoreHandlerRecon());
+        } catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
 
+    private static SkillTree loadSkillTree(String name) throws Exception{
+        String pth = "/assets/exoskeleton/trees/" + name + ".json";
+        try(InputStream in = System.class.getResourceAsStream(pth)){
+            return Exoskeleton.gson.fromJson(new InputStreamReader(in), SkillTree.class);
+        }
+    }
+
+    private static void register(String tag, ICoreHandler handler) throws Exception{
+        register(tag, loadSkillTree(tag), handler);
     }
 
     public static void register(String tag, SkillTree tree, ICoreHandler handler){

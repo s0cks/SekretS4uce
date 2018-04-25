@@ -1,5 +1,7 @@
 package exoskeleton.common;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import exoskeleton.api.IExoskeletonApi;
 import exoskeleton.api.armor.PlayerArmorData;
 import exoskeleton.api.armor.PlayerArmorSlot;
@@ -19,6 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -38,6 +42,15 @@ implements IExoskeletonApi{
     public static IExoskeletonProxy proxy;
 
     public static final CreativeTabs tab = new CreativeTabExoskeleton();
+    public static final Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .serializeNulls()
+            .create();
+
+    @Override
+    public SkillTree load(InputStream input){
+        return gson.fromJson(new InputStreamReader(input), SkillTree.class);
+    }
 
     @Override
     public Optional<SkillTree> getSkillTreeFor(String tag){
