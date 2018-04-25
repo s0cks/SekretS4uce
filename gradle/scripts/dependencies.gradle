@@ -1,0 +1,9 @@
+import groovy.json.JsonSlurper
+
+def buildJson = file("build.json")
+if(buildJson.exists()){
+    project.ext.config = (new JsonSlurper()).parse(buildJson)
+    project.ext.getDependency = { artifact->
+        return project.ext.config.dependencies["${artifact}"]
+    }
+}

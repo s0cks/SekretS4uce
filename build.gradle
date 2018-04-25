@@ -1,0 +1,28 @@
+buildscript{
+    repositories{
+        mavenCentral()
+        jcenter()
+        maven{
+            name = "Forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    dependencies{
+        classpath "net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT"
+    }
+}
+
+apply plugin: "idea"
+apply plugin: "java"
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+apply from: "./gradle/scripts/dependencies.gradle"
+apply from: "./gradle/scripts/minecraft_forge.gradle"
+
+dependencies{
+    testCompile "junit:junit:${getDependency("junit")}"
+    testCompile "org.slf4j:slf4j-simple:${getDependency("slf4j")}"
+
+    compile "com.google.guava:guava:${getDependency("guava")}"
+    compile "org.slf4j:slf4j-api:${getDependency("slf4j")}"
+}
