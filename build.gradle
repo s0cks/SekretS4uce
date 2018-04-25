@@ -23,6 +23,7 @@ dependencies{
     testCompile "junit:junit:${getDependency("junit")}"
     testCompile "org.slf4j:slf4j-simple:${getDependency("slf4j")}"
 
+    compile "io.reactivex.rxjava:rxjava:${getDependency("rxjava")}"
     compile "com.google.guava:guava:${getDependency("guava")}"
     compile "org.slf4j:slf4j-api:${getDependency("slf4j")}"
 }
