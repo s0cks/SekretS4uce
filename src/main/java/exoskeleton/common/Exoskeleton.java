@@ -60,6 +60,12 @@ implements IExoskeletonApi{
     }
 
     @Override
+    public Optional<PlayerArmorData> getPlayerArmorData(EntityPlayer player, ItemStack stack){
+        return ExoskeletonTag.getStackTag(stack)
+                .map((tag)->new PlayerArmorData(player, tag));
+    }
+
+    @Override
     public Optional<PlayerArmorData> getPlayerArmorData(EntityPlayer player, PlayerArmorSlot slot) {
         return ((List<ItemStack>) player.getArmorInventoryList())
                 .stream()

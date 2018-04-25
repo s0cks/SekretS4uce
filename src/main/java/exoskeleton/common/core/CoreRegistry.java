@@ -42,7 +42,7 @@ public final class CoreRegistry{
         private final SkillTree skillTree;
         private final ICoreHandler coreHandler;
 
-        public CoreRegistration(SkillTree skillTree, ICoreHandler coreHandler){
+        CoreRegistration(SkillTree skillTree, ICoreHandler coreHandler){
             this.skillTree = skillTree;
             this.coreHandler = coreHandler;
         }

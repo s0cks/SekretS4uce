@@ -16,6 +16,7 @@ public interface IExoskeletonApi{
     Optional<ICoreHandler> getCoreHandlerFor(String tag);
     Optional<ICoreHandler> getCoreHandlerFor(ItemStack stack);
     Optional<PlayerArmorData> getPlayerArmorData(EntityPlayer player, PlayerArmorSlot slot);
+    Optional<PlayerArmorData> getPlayerArmorData(EntityPlayer player, ItemStack stack);
 
     @Deprecated
     List<ICoreHandler> getCoreHandlersFrom(EntityPlayer player);
