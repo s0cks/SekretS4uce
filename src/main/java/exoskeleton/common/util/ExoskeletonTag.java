@@ -17,4 +17,9 @@ public final class ExoskeletonTag{
         if(!(comp.hasKey(IDENTIFIER))) comp.setTag(IDENTIFIER, new NBTTagCompound());
         return Optional.ofNullable(comp.getCompoundTag(IDENTIFIER));
     }
+
+    public static boolean hasStackTag(ItemStack stack){
+        return stack.hasTagCompound() &&
+                stack.getTagCompound().hasKey(IDENTIFIER);
+    }
 }
