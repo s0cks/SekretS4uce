@@ -3,11 +3,9 @@ package exoskeleton.common.skill;
 import exoskeleton.api.skill.SkillTree;
 import exoskeleton.api.skill.SkillTreeNode;
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageOutputStream;
 import org.junit.Test;
 
 import java.awt.Dimension;
-import java.awt.image.BufferedImage;
 import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;

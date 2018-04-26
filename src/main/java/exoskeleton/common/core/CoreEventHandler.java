@@ -5,7 +5,6 @@ import exoskeleton.api.core.ICoreHandler;
 import exoskeleton.common.util.ExoskeletonTag;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
